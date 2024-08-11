@@ -1,4 +1,8 @@
 /* General Styles */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
@@ -16,6 +20,11 @@ body {
 a {
     text-decoration: none;
     color: inherit;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #007bff;
 }
 
 /* Author Box */
@@ -53,6 +62,12 @@ a {
 .logo {
     font-size: 1.75rem; /* 28px */
     font-weight: bold;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.logo:hover {
+    color: #007bff;
 }
 
 .nav {
@@ -66,6 +81,7 @@ a {
     margin: 0;
     display: flex;
     gap: 20px;
+    transition: max-height 0.3s ease;
 }
 
 .nav ul li a {
@@ -91,11 +107,12 @@ a {
     cursor: pointer;
     border-radius: 5px;
     font-weight: 700;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .signup-btn:hover {
     background-color: #0056b3;
+    transform: translateY(-2px);
 }
 
 /* Mobile Menu */
@@ -108,7 +125,7 @@ a {
     cursor: pointer;
 }
 
-.nav ul {
+.nav ul.active {
     display: flex;
 }
 
@@ -140,10 +157,11 @@ a {
 
 /* Hero Section */
 .hero {
-    background-image: linear-gradient(135deg, #4a90e2, #007bff);
+    background: #4a90e2; /* Fallback color */
+    background: linear-gradient(135deg, #4a90e2, #007bff);
     color: white;
     text-align: center;
-    padding: 100px 0;
+    padding: 100px 20px;
     background-size: cover;
     background-position: center;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
@@ -156,6 +174,7 @@ a {
     opacity: 0;
     transform: translateY(-20px);
     animation: fadeInUp 1s ease forwards 0.6s;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Enhanced text shadow */
 }
 
 .hero p {
@@ -164,6 +183,7 @@ a {
     opacity: 0;
     transform: translateY(-20px);
     animation: fadeInUp 1s ease forwards 0.7s;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Enhanced text shadow */
 }
 
 .cta-buttons {
@@ -185,12 +205,13 @@ a {
     border-radius: 50px;
     font-size: 1rem; /* 16px */
     font-weight: 700;
-    transition: all 0.3s;
+    transition: all 0.3s, transform 0.2s;
 }
 
 .cta-btn.secondary {
     background-color: transparent;
     color: #fff;
+    border: 2px solid #fff; /* Added border for secondary button */
 }
 
 .cta-btn:hover {
@@ -231,16 +252,17 @@ a {
     border-radius: 10px;
     text-align: center;
     flex: 1;
-    min-width: 200px;
+    min-width: 220px; /* Slightly increased min-width */
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     opacity: 0;
     transform: translateY(-20px);
     animation: fadeInUp 1s ease forwards 1s;
 }
 
 .feature-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 .feature-card .icon {
@@ -259,7 +281,7 @@ a {
 /* Security and Uptime Section */
 .security-uptime {
     background-color: #1a1a1a;
-    padding: 80px 0;
+    padding: 80px 20px; /* Adjusted padding for mobile responsiveness */
     color: white;
     text-align: center;
 }
@@ -292,7 +314,7 @@ a {
 /* About Section */
 .about {
     background-color: #333;
-    padding: 80px 0;
+    padding: 80px 20px; /* Adjusted padding for mobile responsiveness */
     color: white;
     text-align: center;
 }
@@ -318,19 +340,14 @@ a {
 
 /* Support Section */
 .support {
-    background-color: #282828;
-    padding: 80px 0;
-    color: white;
-    text-align: center;
+    margin-top: 0; /* Ensure there's no margin */
+    padding-top: 0; /* Ensure there's no padding */
+    border-top: none; /* Ensure there's no border */
 }
 
-.support h2 {
-    margin-bottom: 40px;
-    font-size: 2.25rem; /* 36px */
-    font-weight: 700;
-    opacity: 0;
-    transform: translateY(-20px);
-    animation: fadeInUp 1s ease forwards 1.4s;
+.some-section-above-support { /* Replace with the actual class of the section above */
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .support-content {
@@ -360,7 +377,7 @@ a {
     background-color: #1a1a1a;
     color: white;
     text-align: center;
-    padding: 20px 0;
+    padding: 20px 20px; /* Adjusted padding for better spacing */
     border-top: 1px solid #444;
     opacity: 0;
     transform: translateY(-20px);
@@ -384,7 +401,8 @@ a {
 }
 
 .social-media a {
-    color: #777;
+    color: #ccc;
+    font-size: 1.25rem; /* 20px */
     transition: color 0.3s;
 }
 
@@ -395,7 +413,7 @@ a {
 /* FAQ Section */
 .faq {
     background-color: #1a1a1a;
-    padding: 60px 0;
+    padding: 60px 20px; /* Adjusted padding for mobile responsiveness */
     color: white;
     text-align: center;
 }
@@ -417,15 +435,13 @@ a {
     background-color: #007bff;
     color: white;
     border: none;
-    padding: 10px 20px;
-    font-size: 1rem; /* 16px */
+    padding: 12px 24px;
+    font-size: 1.125rem; /* 18px */
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 8px;
     font-weight: 700;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
     width: 100%;
-    text-align: left;
-    display: block;
     text-align: center;
     opacity: 0;
     transform: translateY(-20px);
@@ -437,18 +453,20 @@ a {
 }
 
 .faq-content {
-    display: none;
+    max-height: 0;
+    overflow: hidden;
     background-color: #333;
     padding: 15px;
     border-radius: 5px;
     margin-top: 10px;
     text-align: left;
     font-size: 0.875rem; /* 14px */
+    transition: max-height 0.5s ease; /* Smoother transition */
 }
 
 /* Show content on click */
 .faq-item.active .faq-content {
-    display: block;
+    max-height: 500px; /* or a value sufficient for your content */
 }
 
 /* Responsive Styles */
@@ -531,20 +549,4 @@ a {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-.feature-card {
-    background-color: #333;
-    padding: 25px;
-    border-radius: 10px;
-    text-align: center;
-    flex: 1;
-    min-width: 200px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.feature-card:hover {
-    transform: translateY(-15px) scale(1.05); 
-    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.6); 
 }
